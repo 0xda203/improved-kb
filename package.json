@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "forums": "node --env-file=.env crawl/forums.js"
+    "forums": "node crawl/forums.js"
   },
   "keywords": [],
   "author": "",
@@ -13,6 +13,7 @@
     "axios": "^1.6.7",
     "cheerio": "^1.0.0-rc.12",
     "concurrent-queue": "^7.0.2",
+    "dotenv": "^16.4.1",
     "fuzzysort": "^2.0.4",
     "html-to-text": "^9.0.5",
     "langchain": "^0.1.14",

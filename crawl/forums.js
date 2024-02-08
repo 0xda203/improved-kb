@@ -1,3 +1,5 @@
+require('dotenv').config()
+
 const fs = require('fs');
 const { readFile, writeFile } = require('fs').promises;
 const cheerio = require('cheerio');
