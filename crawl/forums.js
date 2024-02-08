@@ -284,7 +284,7 @@ async function preProcess(url, maxRetries = 3, retryDelay = 1000) {
 
         } catch (error) {
             if (retries < maxRetries) {
-                await delay(retryDelay);
+                await new Promise(resolve => setTimeout(resolve, retryDelay));
                 retries++;
                 return fetchURL();
             } else {
@@ -314,7 +314,7 @@ async function crawl({ url, label }) {
 
 async function main() {
     try {
-        const docs = await readFile('output/forums_0.json', 'utf-8').then(JSON.parse);
+        const docs = await readFile('output/' + process.env.PROCESS_FILE, 'utf-8').then(JSON.parse);
         const batchSize = 20;
 
         const chunks = [];
@@ -338,7 +338,7 @@ async function main() {
             await Promise.all(promises);
             uploaded += chunk.length;
 
-            // console.log(`Progress: ${uploaded}/${docs.length} files to Vectara!`)
+            console.log(`Progress: ${uploaded}/${docs.length} files to Vectara!`)
             await new Promise(resolve => setTimeout(resolve, 2000));
         }
     } catch (ex) {
