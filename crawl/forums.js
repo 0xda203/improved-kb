@@ -8,6 +8,7 @@ const { uploadToCorpus } = require('../lib/rag');
 const { question } = require('../lib/llm');
 const { convert } = require('html-to-text');
 const read = require('read-art');
+const fetch = require('node-fetch');
 
 async function query(pageNumber) {
     return fetch("https://community.atlassian.com/tnckb94959/plugins/custom/atlassian/atlassian/member_feed_get_markup?authorId=0&feedType=homepageFeed&tid=-6884361458280729284", {

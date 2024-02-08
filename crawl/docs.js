@@ -2,6 +2,7 @@ const { convert } = require('html-to-text');
 const { improve } = require('../lib/llm');
 const { uploadToCorpus } = require('../lib/rag');
 const { readFile, writeFile } = require('fs').promises;
+const fetch = require('node-fetch');
 
 async function query(q) {
     return fetch("https://cu5kfwe75c-3.algolianet.com/1/indexes/*/queries?x-algolia-agent=Algolia%20for%20JavaScript%20(4.13.0)%3B%20Browser", {
