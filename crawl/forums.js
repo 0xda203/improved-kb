@@ -331,7 +331,7 @@ async function main() {
                 const { title, url, label } = doc;
                 const { content } = await crawl({ url, label });
                 const improved = await question(content);
-                const { id } = await uploadToCorpus({ title, content: improved, label });
+                const { id } = await uploadToCorpus(improved, { title, section: label, url, type: "forum" });
                 return { title, url, label, id };
             });
 
